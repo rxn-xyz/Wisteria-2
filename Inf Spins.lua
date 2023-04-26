@@ -1,9 +1,6 @@
 -- Wisteria 2 | xyz
 -- Loader
 repeat task.wait() until game:IsLoaded() and game:GetService("Players"); task.wait(5); if game.PlaceId ~= 11573834824 then return end
--- Globals
-getgenv().Clans = {"Kamado", "Tsugikuni"}
-getgenv().Webhook = {true, "https://discord.com/api/webhooks/1100263185698787469/Qi8RExILGtZkPQv53lslt8frWZWaewYDh8AIghAQX6EZy6BWHw-4D3miGDkCEXEbaJ8c"}
 -- Player Variables
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
