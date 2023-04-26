@@ -34,9 +34,9 @@ task.spawn(function()
 		-- Check Spins
 		if Clan.Spins.Text == "0 Spins Left" then
 			for _ = 1, 3 do task.wait()
-				game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer); break
+				game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer)
 			end
-		end
+		break end
 	end
 end)
 -- End
