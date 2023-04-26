@@ -23,7 +23,7 @@ task.spawn(function()
 				local Data = {
 					["embeds"] = {{
 							["title"] = "**Clan Obtained**",
-							["description"] = "Clan: " .. Clan.LName.Text,
+							["description"] = "Clan: " .. Clan.LName.Text .. "\n" .. "Account: " .. LocalPlayer.Name,
 							["type"] = "rich",
 							["color"] = tonumber(0x7269da),
 					}}
