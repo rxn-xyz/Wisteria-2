@@ -21,6 +21,7 @@ task.spawn(function()
 			-- Webhook
 			if Webhook[1] then
 				local Data = {
+					["content"] = "@everyone",
 					["embeds"] = {{
 							["title"] = "**Clan Obtained**",
 							["description"] = "Clan: " .. Clan.LName.Text .. "\n" .. "Account: " .. LocalPlayer.Name,
