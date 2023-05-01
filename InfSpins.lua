@@ -1,18 +1,19 @@
 -- Wisteria 2 | xyz
 -- Loader
-repeat task.wait() until game:IsLoaded() and game:GetService("Players"); task.wait(6); if game.PlaceId ~= 11573834824 then return end
--- Player Variables
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer.PlayerGui
--- Wisteria 2 Variables
-local Clan = PlayerGui:WaitForChild("CC"):WaitForChild("Main"):WaitForChild("Clan")
--- Data Rollback
-PlayerGui.Gui.Ui.UiModule.Modules.Settings.Set:InvokeServer(1, "\255")
+repeat task.wait() until game:IsLoaded() and game:GetService("Players"); task.wait(5); if game.PlaceId ~= 11573834824 then return end
 -- Reroll
 task.spawn(function()
 	while true do task.wait()
 		pcall(function()
+			-- Player Variables
+			local Players = game:GetService("Players")
+			local LocalPlayer = Players.LocalPlayer
+			local PlayerGui = LocalPlayer.PlayerGui
+			-- Wisteria 2 Variables
+			local Clan = PlayerGui:WaitForChild("CC"):WaitForChild("Main"):WaitForChild("Clan")
+			-- Data Rollback
+			PlayerGui.Gui.Ui.UiModule.Modules.Settings.Set:InvokeServer(1, "\255")
+			-- Reroll
 			Clan.RRLastName.LocalScript.RR:InvokeServer("RRLastName"); task.wait(0.05)
 			-- Check Clan
 			print(Clan.LName.Text)
