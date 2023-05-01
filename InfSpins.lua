@@ -12,30 +12,32 @@ PlayerGui.Gui.Ui.UiModule.Modules.Settings.Set:InvokeServer(1, "\255")
 -- Reroll
 task.spawn(function()
 	while true do task.wait()
-		Clan.RRLastName.LocalScript.RR:InvokeServer("RRLastName"); task.wait(0.05)
-		-- Check Clan
-		print(Clan.LName.Text)
-		if table.find(Clans, Clan.LName.Text) then
-			-- Save Data
-			PlayerGui.Gui.Ui.UiModule.Modules.Settings.Set:InvokeServer(1, "B")
-			-- Webhook
-			if Webhook[1] then
-				local Data = {
-					["content"] = "@everyone",
-					["embeds"] = {{
-							["title"] = "**Clan Obtained**",
-							["description"] = "Clan: " .. Clan.LName.Text .. "\n" .. "Account: " .. LocalPlayer.Name,
-							["type"] = "rich",
-							["color"] = tonumber(0x7269da),
-					}}
-				}
-				syn.request({Url = Webhook[2], Body = game:GetService("HttpService"):JSONEncode(Data), Method = "POST", Headers = {["content-type"] = "application/json"}})
-			end
-		break end
-		-- Check Spins
-		if Clan.Spins.Text == "0 Spins Left" then
-			game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer)
-		break end
+		pcall(function()
+			Clan.RRLastName.LocalScript.RR:InvokeServer("RRLastName"); task.wait(0.05)
+			-- Check Clan
+			print(Clan.LName.Text)
+			if table.find(Clans, Clan.LName.Text) then
+				-- Save Data
+				PlayerGui.Gui.Ui.UiModule.Modules.Settings.Set:InvokeServer(1, "B")
+				-- Webhook
+				if Webhook[1] then
+					local Data = {
+						["content"] = "@everyone",
+						["embeds"] = {{
+								["title"] = "**Clan Obtained**",
+								["description"] = "Clan: " .. Clan.LName.Text .. "\n" .. "Account: " .. LocalPlayer.Name,
+								["type"] = "rich",
+								["color"] = tonumber(0x7269da),
+						}}
+					}
+					syn.request({Url = Webhook[2], Body = game:GetService("HttpService"):JSONEncode(Data), Method = "POST", Headers = {["content-type"] = "application/json"}})
+				end
+			break end
+			-- Check Spins
+			if Clan.Spins.Text == "0 Spins Left" then
+				game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer)
+			break end
+		end)
 	end
 end)
 -- End
